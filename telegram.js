@@ -21,7 +21,7 @@ function initializeApp(SERVER_URL, TOKEN, PORT) {
 
         TELEGRAM_API_URL = `https://api.telegram.org/bot${TOKEN}`;
 
-        app.listen(PORT, (err) => {
+        app.listen(PORT || process.env.PORT, (err) => {
 
             if (err) reject(err);
 

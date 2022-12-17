@@ -22,7 +22,7 @@ function checkAndUpdatePrices(telegram, mongodb, amazonPriceTracker) {
             let message = `Price dropped. New price is ${newPrice}`;
 
             await telegram.sendMessage(user.chatId, message);
-            await telegram.sendMessage(chatId, "To stop receiving update send /stop")
+            await telegram.sendMessage(user.chatId, "To stop receiving update send /stop");
 
             await mongodb.updateUser(user.chatId, user.url, newPrice);
           }
